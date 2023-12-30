@@ -3,21 +3,18 @@
 import { motion, useSpring } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import '@fontsource/monofett';
+import { Transition } from '@/components/Transition';
 
-export default function Loading(): JSX.Element {
-  const [loading, setLoading] = useState(true);
-  // show loading screen for 3 seconds on first load
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
-
+export default function Loading({
+  loading,
+}: {
+  loading: boolean;
+}): JSX.Element {
   return (
     <>
       {loading ? (
-        <main className="loading fixed z-20 flex min-h-screen w-full flex-col items-center justify-center">
-          <div className="scale-50 h-fit w-fit mb-5">
+        <main className="loading bg-white fixed inset-0 z-50 flex h-screen w-screen flex-col items-center justify-center">
+          <div className="scale-75 h-fit w-fit mb-5">
             <motion.svg
               height="75%"
               width="75%"
@@ -189,17 +186,11 @@ export default function Loading(): JSX.Element {
               transition={{ duration: 3, ease: 'easeInOut' }}
             />
           </div>
-          <motion.text
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 0.2, 0, 1] }}
-            transition={{ delay: 0.6, duration: 3 }}
-            className="text-4xl mono"
-          >
-            Loading...
-          </motion.text>
         </main>
       ) : (
-        <></>
+        <>
+          <Transition />
+        </>
       )}
     </>
   );

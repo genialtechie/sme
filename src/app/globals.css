@@ -2,10 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@700&display=swap');
+
+/* 1px scrollbar height */
+::-webkit-scrollbar {
+  height: 1px;
+  width: 1px;
+}
+
 .progress-bar {
   transform-origin: 0%;
 }
 
 .mono {
   font-family: 'Monofett', monospace;
+}
+
+.serif {
+  font-family: 'Kalnia';
+}
+
+.horizontal-scroll-wrapper {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100vh;
+  height: 100vw;
+  max-height: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  transform: rotate(-90deg) translateY(-100vh);
+  transform-origin: right top;
+  text-align: center;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.horizontal-scroll-wrapper > p {
+  display: block;
+  transform: rotate(90deg);
+  transform-origin: right top;
+  margin-top: 100vw;
+  margin-right: 45vh;
+}
+
+/* on small and medium screen sizes make .horizontal-scroll-wrapper > p margin different */
+@media (max-width: 768px) {
+  .horizontal-scroll-wrapper > p {
+    margin-top: 117vw;
+  }
+}
+
+@media (max-width: 400px) {
+  .horizontal-scroll-wrapper > p {
+    margin-top: 120vw;
+  }
+}
+
+/* on large screen sizes make .horizontal-scroll-wrapper > p margin different */
+@media (min-width: 1024px) {
+  .horizontal-scroll-wrapper > p {
+    margin-top: 80vw;
+  }
 }
