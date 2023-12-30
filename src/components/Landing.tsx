@@ -5,6 +5,26 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { VideoComponent } from '@/components/VideoComponent';
 import Logo from '@/components/Logo';
 
+const HorizontalScrollText = () => {
+  const targetRef = useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+  const x = useTransform(scrollYProgress, [0, 1], ['-80%', '100%']);
+
+  return (
+    <div className="sticky items-center h-screen w-screen flex overflow-hidden z-40">
+      <motion.p
+        ref={targetRef}
+        style={{ x }}
+        className="uppercase m-5 font-serif text-6xl text-white font-bold tracking-widest whitespace-nowrap"
+      >
+        Seniormen Entertainment Website coming soon!{'  '}
+      </motion.p>
+    </div>
+  );
+};
+
 export default function Landing() {
   const { scrollYProgress } = useScroll();
   const textRef = useRef(null);
@@ -15,11 +35,7 @@ export default function Landing() {
     <section className="flex min-h-screen flex-col items-center justify-between">
       <div className="relative top-0 left-0 w-fit h-fit">
         <Logo />
-        <div className="z-40 horizontal-scroll-wrapper">
-          <p className="uppercase m-5 font-serif text-6xl text-white font-bold tracking-widest whitespace-nowrap">
-            Seniormen Entertainment Website coming soon!{'  '}
-          </p>
-        </div>
+        <HorizontalScrollText />
         <div className="absolute bottom-0 inset-x-0 mx-auto z-40 h-fit w-fit p-5">
           <motion.p
             className="uppercase font-inter text-sm text-white/20 font-bold"
