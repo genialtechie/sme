@@ -37,7 +37,10 @@ export default function SuscribeForm() {
             <h3 className="font-inter md:text-lg lg:text-xl text-gray-500 mt-2">
               Suscribe to our newsletter to stay updated.
             </h3>
-            <form className="mt-10 md:mt-20 text-sm md:text-base h-10 md:h-14 flex flex-row items-center font-inter">
+            <form
+              data-netlify="true"
+              className="mt-10 md:mt-20 text-sm md:text-base h-10 md:h-14 flex flex-row items-center font-inter"
+            >
               <input
                 type="email"
                 name="email"
