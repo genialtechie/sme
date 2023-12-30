@@ -10,7 +10,7 @@ const HorizontalScrollText = () => {
   const { scrollYProgress } = useScroll({
     target: targetRef,
   });
-  const x = useTransform(scrollYProgress, [0, 1], ['-80%', '100%']);
+  const x = useTransform(scrollYProgress, [0, 0.5], ['-80%', '0%']);
 
   return (
     <div className="sticky items-center h-screen w-screen flex overflow-hidden z-40">
@@ -29,7 +29,7 @@ export default function Landing() {
   const { scrollYProgress } = useScroll();
   const textRef = useRef(null);
   //make text fade out as user scrolls down
-  const opacity = useTransform(scrollYProgress, [0, 0.1], ['100%', '0%']);
+  const opacity = useTransform(scrollYProgress, [0, 0.5], ['100%', '0%']);
 
   return (
     <section className="flex min-h-screen flex-col items-center justify-between">
