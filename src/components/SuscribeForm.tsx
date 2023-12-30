@@ -22,7 +22,18 @@ export default function SuscribeForm() {
 
     if (!emailError) {
       // Proceed with form submission logic
-      console.log('Form submitted');
+      const myForm = event.target as HTMLFormElement;
+      const formData = new FormData(myForm);
+
+      const urlSearchParams = new URLSearchParams(formData as any);
+
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: urlSearchParams.toString(),
+      })
+        .then(() => alert('Successfully submitted!'))
+        .catch((error) => alert(error));
     }
   };
 
