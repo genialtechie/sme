@@ -50,6 +50,9 @@ export default function SuscribeForm() {
             </h3>
             <form
               data-netlify="true"
+              name="newsletter"
+              method="POST"
+              netlify-honeypot="bot-field"
               className="mt-10 md:mt-20 text-sm md:text-base h-10 md:h-14 flex flex-row items-center font-inter"
             >
               <input
