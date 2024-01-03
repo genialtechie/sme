@@ -19,7 +19,7 @@ const HorizontalScrollText = () => {
         style={{ x }}
         className="uppercase m-5 font-serif text-6xl text-white font-bold tracking-widest whitespace-nowrap"
       >
-        Seniormen Entertainment Website coming soon!{'  '}
+        Seniormen Ent. Website coming soon!
       </motion.p>
     </div>
   );

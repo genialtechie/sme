@@ -46,7 +46,7 @@ export default function SuscribeForm() {
               Parties, Merch & More...
             </h1>
             <h3 className="font-inter md:text-lg lg:text-xl text-gray-500 mt-2">
-              Suscribe to our newsletter to stay updated.
+              Be the first to know when we launch!
             </h3>
             <form
               data-netlify="true"
