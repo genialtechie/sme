@@ -24,7 +24,7 @@ export default function SuscribeForm() {
 
     if (!emailError) {
       // Proceed with form submission logic
-      const myForm = event.target as HTMLFormElement;
+      const myForm = document.getElementById('newsletter') as HTMLFormElement;
       const formData = new FormData(myForm);
 
       const urlSearchParams = new URLSearchParams(formData as any);
@@ -36,6 +36,7 @@ export default function SuscribeForm() {
       })
         .then(() => {
           alert('Successfully submitted!');
+          setEmail('');
           router.push('/');
         })
         .catch((error) => alert(error));
@@ -54,6 +55,7 @@ export default function SuscribeForm() {
               Be the first to know when we launch!
             </h3>
             <form
+              id="newsletter"
               data-netlify="true"
               name="newsletter"
               method="POST"
