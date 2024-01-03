@@ -1,9 +1,11 @@
 import Reveal from '@/components/Reveal';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 export default function SuscribeForm() {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
+  const router = useRouter();
 
   const validateEmail = () => {
     if (!email) {
@@ -32,7 +34,10 @@ export default function SuscribeForm() {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: urlSearchParams.toString(),
       })
-        .then(() => alert('Successfully submitted!'))
+        .then(() => {
+          alert('Successfully submitted!');
+          router.push('/');
+        })
         .catch((error) => alert(error));
     }
   };
