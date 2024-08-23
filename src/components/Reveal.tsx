@@ -23,7 +23,7 @@ export default function Reveal({ children }: { children: React.ReactNode }) {
       animate={animationControls}
       transition={{
         duration: 0.75,
-        delay: 0.25,
+        delay: 0.5,
         ease: 'easeInOut',
         repeat: 0,
       }}

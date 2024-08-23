@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { VideoComponent } from '@/components/VideoComponent';
 import Logo from '@/components/Logo';
@@ -28,12 +28,18 @@ const HorizontalScrollText = () => {
 export default function Landing() {
   const { scrollYProgress } = useScroll();
   const textRef = useRef(null);
-  //make text fade out as user scrolls down
   const opacity = useTransform(scrollYProgress, [0, 0.5], ['100%', '0%']);
+  const [position, setPosition] = useState('fixed');
+
+  useEffect(() => {
+    scrollYProgress.on('change', (value) => {
+      setPosition(value < 0.45 ? 'fixed' : 'relative');
+    });
+  }, [scrollYProgress]);
 
   return (
     <section className="flex min-h-screen flex-col items-center justify-between">
-      <div className="relative top-0 left-0 w-fit h-fit">
+      <motion.div className={`${position} top-0 left-0 w-fit h-fit`}>
         <Logo />
         <HorizontalScrollText />
         <div className="absolute bottom-0 inset-x-0 mx-auto z-40 h-fit w-fit p-5">
@@ -58,7 +64,7 @@ export default function Landing() {
         </div>
 
         <VideoComponent />
-      </div>
+      </motion.div>
     </section>
   );
 }
