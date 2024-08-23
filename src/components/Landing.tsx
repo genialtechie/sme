@@ -3,7 +3,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { VideoComponent } from '@/components/VideoComponent';
-import Logo from '@/components/Logo';
+import Image from 'next/image';
 
 const HorizontalScrollText = () => {
   const targetRef = useRef<HTMLDivElement | null>(null);
@@ -17,7 +17,7 @@ const HorizontalScrollText = () => {
       <motion.p
         ref={targetRef}
         style={{ x }}
-        className="uppercase m-5 font-serif text-6xl text-white font-bold tracking-widest whitespace-nowrap"
+        className="uppercase text-black/80 m-5 font-serif text-6xl font-bold tracking-widest whitespace-nowrap"
       >
         Seniormen Ent. Website coming soon!
       </motion.p>
@@ -40,7 +40,13 @@ export default function Landing() {
   return (
     <section className="flex min-h-screen flex-col items-center justify-between">
       <motion.div className={`${position} top-0 left-0 w-fit h-fit`}>
-        <Logo />
+        <Image
+          src="/logo.png"
+          alt="Logo"
+          width={60}
+          height={60}
+          className="scale-125 md:scale-150 lg:scale-200 absolute z-40 top-5 inset-x-0 mx-auto"
+        />
         <HorizontalScrollText />
         <div className="absolute bottom-0 inset-x-0 mx-auto z-40 h-fit w-fit p-5">
           <motion.p
