@@ -16,6 +16,10 @@ const config: Config = {
       fontFamily: {
         serif: ['var(--font-kalnia)'],
         inter: ['var(--font-inter)'],
+        kalnia: ['var(--font-kalnia)'],
+        garamond: ['var(--font-garamond)'],
+        anton: ['var(--font-anton)'],
+        handwriting: ['var(--font-dancing-script)', 'cursive'],
       },
     },
   },

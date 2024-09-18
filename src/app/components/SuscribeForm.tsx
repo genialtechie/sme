@@ -1,4 +1,6 @@
-import Reveal from '@/components/Reveal';
+'use client';
+
+import Reveal from '@/app/components/Reveal';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -45,9 +47,9 @@ export default function SuscribeForm() {
 
   return (
     <>
-      <section className="h-screen w-screen flex items-center justify-center">
+      <section className="flex justify-center my-64 md:mb-40 md:my-0">
         <Reveal>
-          <div className="container p-5 md:max-w-xl lg:max-w-3xl flex flex-col justify-center text-left">
+          <div className="container my-auto p-5 md:max-w-xl lg:max-w-3xl flex flex-col justify-center text-left">
             <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold tracking-wide font-serif">
               Parties, Merch & More...
             </h1>
